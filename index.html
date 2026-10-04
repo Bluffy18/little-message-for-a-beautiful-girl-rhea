@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="tl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Good Luck on Your Exam! 🍀✨</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: linear-gradient(180deg, #ffe6f0 0%, #ffccd5 50%, #ffb3c6 100%);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow-x: hidden;
+      padding: 20px;
+      position: relative;
+    }
+
+    /* Floating Hearts Canvas Background */
+    #heartCanvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Main Card Container */
+    .card-container {
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(10px);
+      border: 4px solid #ff85a2;
+      border-radius: 30px;
+      padding: 30px 25px;
+      max-width: 480px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 15px 35px rgba(255, 133, 162, 0.3);
+      z-index: 10;
+      position: relative;
+      animation: floatCard 4s ease-in-out infinite alternate;
+    }
+
+    @keyframes floatCard {
+      0% { transform: translateY(0px); }
+      100% { transform: translateY(-8px); }
+    }
+
+    /* Animated Characters Row */
+    .characters-row {
+      display: flex;
+      justify-content: space-around;
+      align-items: flex-end;
+      margin-bottom: 20px;
+      height: 110px;
+    }
+
+    /* Cute Bunny Animation */
+    .bunny {
+      width: 80px;
+      height: 90px;
+      position: relative;
+      animation: bunnyHop 1.2s infinite ease-in-out alternate;
+    }
+
+    @keyframes bunnyHop {
+      0% { transform: translateY(0) scaleY(1); }
+      100% { transform: translateY(-18px) scaleY(1.05); }
+    }
+
+    /* Cute Cat Animation */
+    .cat {
+      width: 80px;
+      height: 90px;
+      position: relative;
+      animation: catSway 2s infinite ease-in-out alternate;
+    }
+
+    @keyframes catSway {
+      0% { transform: rotate(-5deg); }
+      100% { transform: rotate(5deg); }
+    }
+
+    /* Tulips Garden Row */
+    .tulips-row {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .tulip {
+      width: 35px;
+      height: 60px;
+      position: relative;
+      transform-origin: bottom center;
+      animation: swayTulip 2.5s ease-in-out infinite alternate;
+    }
+
+    .tulip:nth-child(even) {
+      animation-delay: 0.5s;
+    }
+
+    @keyframes swayTulip {
+      0% { transform: rotate(-8deg); }
+      100% { transform: rotate(8deg); }
+    }
+
+    /* Message Styles */
+    h1 {
+      color: #d63384;
+      font-size: 1.8rem;
+      margin-bottom: 12px;
+      text-shadow: 1px 1px 2px rgba(255, 182, 193, 0.5);
+    }
+
+    .badge {
+      display: inline-block;
+      background: #ff4d6d;
+      color: white;
+      font-weight: bold;
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 0.95rem;
+      margin-bottom: 18px;
+      box-shadow: 0 4px 10px rgba(255, 77, 109, 0.3);
+    }
+
+    p {
+      color: #555;
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+
+    .reminder-box {
+      background: #fff0f5;
+      border-left: 5px solid #ff758c;
+      padding: 12px;
+      border-radius: 12px;
+      text-align: left;
+      margin-top: 15px;
+      color: #4a4a4a;
+      font-size: 0.95rem;
+    }
+
+    .reminder-box span {
+      display: block;
+      margin-top: 5px;
+      font-weight: bold;
+      color: #d63384;
+    }
+
+    /* Heart Sparkle Button */
+    .cheer-btn {
+      background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%);
+      color: white;
+      border: none;
+      padding: 12px 28px;
+      font-size: 1.05rem;
+      font-weight: bold;
+      border-radius: 50px;
+      cursor: pointer;
+      margin-top: 15px;
+      box-shadow: 0 6px 20px rgba(255, 117, 140, 0.4);
+      transition: all 0.2s ease;
+      outline: none;
+    }
+
+    .cheer-btn:hover {
+      transform: scale(1.05);
+    }
+
+    .cheer-btn:active {
+      transform: scale(0.95);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating Animated Canvas Hearts -->
+  <canvas id="heartCanvas"></canvas>
+
+  <!-- Romance & Motivation Card -->
+  <div class="card-container">
+    
+    <!-- Animated Characters -->
+    <div class="characters-row">
+      <!-- Bunny SVG -->
+      <svg class="bunny" viewBox="0 0 100 100">
+        <!-- Ears -->
+        <ellipse cx="38" cy="25" rx="7" ry="22" fill="#ffffff" stroke="#ffb3c6" stroke-width="3"/>
+        <ellipse cx="38" cy="25" rx="4" ry="15" fill="#ffccd5"/>
+        <ellipse cx="62" cy="25" rx="7" ry="22" fill="#ffffff" stroke="#ffb3c6" stroke-width="3"/>
+        <ellipse cx="62" cy="25" rx="4" ry="15" fill="#ffccd5"/>
+        <!-- Head & Body -->
+        <circle cx="50" cy="65" r="28" fill="#ffffff" stroke="#ffb3c6" stroke-width="3"/>
+        <!-- Eyes -->
+        <circle cx="40" cy="60" r="3" fill="#4a4a4a"/>
+        <circle cx="60" cy="60" r="3" fill="#4a4a4a"/>
+        <!-- Blush -->
+        <ellipse cx="34" cy="66" rx="5" ry="3" fill="#ff758c" opacity="0.5"/>
+        <ellipse cx="66" cy="66" rx="5" ry="3" fill="#ff758c" opacity="0.5"/>
+        <!-- Nose/Mouth -->
+        <polygon points="48,65 52,65 50,68" fill="#ff758c"/>
+      </svg>
+
+      <!-- Cat SVG -->
+      <svg class="cat" viewBox="0 0 100 100">
+        <!-- Ears -->
+        <polygon points="25,35 35,15 48,30" fill="#e6e6e6" stroke="#ffb3c6" stroke-width="3"/>
+        <polygon points="28,33 35,20 44,30" fill="#ffccd5"/>
+        <polygon points="75,35 65,15 52,30" fill="#e6e6e6" stroke="#ffb3c6" stroke-width="3"/>
+        <polygon points="72,33 65,20 56,30" fill="#ffccd5"/>
+        <!-- Head -->
+        <circle cx="50" cy="55" r="26" fill="#e6e6e6" stroke="#ffb3c6" stroke-width="3"/>
+        <!-- Happy Eyes -->
+        <path d="M 38 52 Q 43 46 48 52" fill="none" stroke="#4a4a4a" stroke-width="3" stroke-linecap="round"/>
+        <path d="M 52 52 Q 57 46 62 52" fill="none" stroke="#4a4a4a" stroke-width="3" stroke-linecap="round"/>
+        <!-- Blush -->
+        <ellipse cx="36" cy="58" rx="4" ry="2.5" fill="#ff758c" opacity="0.6"/>
+        <ellipse cx="64" cy="58" rx="4" ry="2.5" fill="#ff758c" opacity="0.6"/>
+        <!-- Mouth -->
+        <path d="M 47 59 Q 50 62 53 59" fill="none" stroke="#ff758c" stroke-width="2"/>
+      </svg>
+    </div>
+
+    <!-- Animated Pink Tulips -->
+    <div class="tulips-row">
+      <!-- Tulip 1 -->
+      <svg class="tulip" viewBox="0 0 40 60">
+        <path d="M 20 60 Q 15 35 20 20" fill="none" stroke="#70e000" stroke-width="3"/>
+        <path d="M 20 20 C 10 10, 10 -5, 20 5 C 30 -5, 30 10, 20 20 Z" fill="#ff4d6d"/>
+        <path d="M 20 20 C 14 12, 14 0, 20 5 C 26 0, 26 12, 20 20 Z" fill="#ff758c"/>
+      </svg>
+      <!-- Tulip 2 -->
+      <svg class="tulip" viewBox="0 0 40 60">
+        <path d="M 20 60 Q 25 35 20 20" fill="none" stroke="#70e000" stroke-width="3"/>
+        <path d="M 20 20 C 10 10, 10 -5, 20 5 C 30 -5, 30 10, 20 20 Z" fill="#ff758c"/>
+        <path d="M 20 20 C 14 12, 14 0, 20 5 C 26 0, 26 12, 20 20 Z" fill="#ff85a2"/>
+      </svg>
+      <!-- Tulip 3 -->
+      <svg class="tulip" viewBox="0 0 40 60">
+        <path d="M 20 60 Q 15 35 20 20" fill="none" stroke="#70e000" stroke-width="3"/>
+        <path d="M 20 20 C 10 10, 10 -5, 20 5 C 30 -5, 30 10, 20 20 Z" fill="#ff4d6d"/>
+        <path d="M 20 20 C 14 12, 14 0, 20 5 C 26 0, 26 12, 20 20 Z" fill="#ff758c"/>
+      </svg>
+    </div>
+
+    <!-- Title & Badge -->
+    <div class="badge"> You Can Do It! 💖</div>
+    <h1>Good Luck sa Exam Mo Bukas! 🍀✨</h1>
+
+    <!-- Heartfelt Message -->
+    <p>
+      Gusto ko lang ipaalala sa'yo kung gaano ka ka-talented, galing, at sipag. Ginawa mo ang lahat ng makakaya mo sa pag-aaral, kaya tiwala lang sa sarili mo—kayang-kaya mo 'yan! I'm always cheering for you! 🌷 kamo ni bunny & cat! 🐰🐱
+    </p>
+
+    <!-- Important Reminders -->
+    <div class="reminder-box">
+      <strong>⚠️ Special Reminders for You:</strong>
+      <span>🍚 Don't forget to eat early & stay hydrated!</span>
+      <span>😴 Sleep early tonight to keep your mind sharp and rested!</span>
+    </div>
+
+    <button class="cheer-btn" onclick="sendLove()">Tap for Extra Good Luck! 💖</button>
+  </div>
+
+  <script>
+    // Canvas Heart Romance Animation Background
+    const canvas = document.getElementById('heartCanvas');
+    const ctx = canvas.getContext('2d');
+
+    function resize() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    const hearts = [];
+
+    function createHeart() {
+      return {
+        x: Math.random() * canvas.width,
+        y: canvas.height + 20,
+        size: Math.random() * 15 + 10,
+        speedY: Math.random() * 1.5 + 1,
+        speedX: Math.sin(Math.random() * Math.PI) * 0.8,
+        opacity: Math.random() * 0.6 + 0.4,
+        color: `hsl(${Math.random() * 20 + 340}, 100%, 75%)`
+      };
+    }
+
+    for (let i = 0; i < 25; i++) {
+      let h = createHeart();
+      h.y = Math.random() * canvas.height;
+      hearts.push(h);
+    }
+
+    function drawHeart(x, y, size, color, opacity) {
+      ctx.save();
+      ctx.globalAlpha = opacity;
+      ctx.fillStyle = color;
+      ctx.beginPath();
+      const topCurveHeight = size * 0.3;
+      ctx.moveTo(x, y + topCurveHeight);
+      ctx.bezierCurveTo(x, y, x - size / 2, y, x - size / 2, y + topCurveHeight);
+      ctx.bezierCurveTo(x - size / 2, y + (size + topCurveHeight) / 2, x, y + size, x, y + size);
+      ctx.bezierCurveTo(x, y + size, x + size / 2, y + (size + topCurveHeight) / 2, x + size / 2,Narito ang kumpletong **`index.html`** code na ginawa gamit ang HTML, CSS, at JavaScript. Pwedeng-pwede mo itong i-copy, i-paste sa GitHub repository mo, at i-publish gamit ang GitHub Pages!
+
+Mayroon itong:
+* **Floating Pink Tulips & Hearts:** Magandang animation ng mga tulips at hearts na lumalutang mula sa ibaba pataas.
+* **Animated Cute Bunny & Cat:** Animated SVGs ng cute na pusa at kuneho na kumakaway at gumagalaw.
+* **Romantikong Mensahe:** Sweet at encouraging message para sa exam bukas na nagpapaalala ring kumain at matulog nang maaga.
+
+```html
+<!DOCTYPE html>
+<html lang="tl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Good Luck on Your Exam! 💖</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: linear-gradient(135deg, #ffe6eb 0%, #ffd1dc 50%, #ffe3ec 100%);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow-x: hidden;
+      position: relative;
+      padding: 20px;
+    }
+
+    /* Floating Background Elements */
+    .floating-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    .float-item {
+      position: absolute;
+      bottom: -50px;
+      animation: floatUp linear infinite;
+      opacity: 0.8;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    /* Main Card */
+    .card {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(10px);
+      border: 3px solid #ffb3c6;
+      border-radius: 30px;
+      padding: 30px 25px;
+      max-width: 480px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(255, 143, 171, 0.3);
+      z-index: 10;
+      animation: fadeIn 1.2s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Animals Container */
+    .animals-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      gap: 15px;
+      margin: 15px 0;
+    }
+
+    /* Cat Animation */
+    .cat-svg {
+      width: 110px;
+      height: 110px;
+      animation: bounceCat 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes bounceCat {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-8px); }
+    }
+
+    /* Bunny Animation */
+    .bunny-svg {
+      width: 100px;
+      height: 110px;
+      animation: bounceBunny 1.8s ease-in-out infinite alternate;
+    }
+
+    @keyframes bounceBunny {
+      0% { transform: translateY(0) rotate(0deg); }
+      100% { transform: translateY(-10px) rotate(3deg); }
+    }
+
+    .paw-wave {
+      transform-origin: bottom right;
+      animation: wave 1.2s ease-in-out infinite alternate;
+    }
+
+    @keyframes wave {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(-20deg); }
+    }
+
+    /* Typography */
+    h1 {
+      color: #d63384;
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+      font-weight: 800;
+    }
+
+    .subtitle {
+      color: #ff4d6d;
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 15
